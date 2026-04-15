@@ -1,4 +1,4 @@
-package br.edu.ifpb.poo;
+package br.edu.ifpb.poo.tiburcio;
 
 public class Main {
     public static void main(String[] args) {
