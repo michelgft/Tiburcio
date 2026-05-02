@@ -50,7 +50,7 @@ public class Tiburcio {
         scanner.close();
     }
     
-    // MENUS 
+    // Menus
     
     private static void menuItens() {
         Menu menu = new Menu();
@@ -102,7 +102,7 @@ public class Tiburcio {
         } while (op != 5);
     }
     
-    // ITENS
+    // Itens
     
     private static void cadastrarLivro() {
         if (totalItens >= MAX_ITENS) { System.out.println("Acervo cheio!"); return; }
@@ -156,5 +156,49 @@ public class Tiburcio {
             }
         }
         System.out.println("Item nao encontrado!\n");
+    }
+
+  //Usuarios
+    
+    private static void cadastrarUsuario() {
+        if (totalUsuarios >= MAX_USUARIOS) { System.out.println("Limite de usuarios atingido!"); return; }
+        System.out.println("\n--- CADASTRO USUARIO ---");
+        System.out.print("Nome: "); String nome = scanner.nextLine();
+        System.out.print("Email: "); String email = scanner.nextLine();
+        System.out.println("1-Graduacao 2-Professor 3-PosGraduacao 4-Funcionario");
+        System.out.print("Categoria: ");
+        int cat = lerInteiro();
+        
+        String tipo;
+        if (cat == 2) tipo = Usuario.TIPO_PROFESSOR;
+        else if (cat == 3) tipo = Usuario.TIPO_POS_GRADUACAO;
+        else if (cat == 4) tipo = Usuario.TIPO_FUNCIONARIO;
+        else tipo = Usuario.TIPO_GRADUACAO;
+        
+        usuarios[totalUsuarios++] = new Usuario(nome, email, tipo);
+        System.out.println("Usuario cadastrado com sucesso!\n");
+    }
+    
+    private static void listarUsuarios() {
+        System.out.println("\n--- USUARIOS ---");
+        if (totalUsuarios == 0) { System.out.println("Nenhum usuario cadastrado.\n"); return; }
+        for (int i = 0; i < totalUsuarios; i++) {
+            System.out.println(usuarios[i].toString() + "\n");
+        }
+    }
+    
+    private static void removerUsuario() {
+        System.out.print("\nID do usuario: ");
+        String id = scanner.nextLine();
+        for (int i = 0; i < totalUsuarios; i++) {
+            if (usuarios[i].getId().equals(id)) {
+                for (int j = i; j < totalUsuarios - 1; j++) usuarios[j] = usuarios[j+1];
+                usuarios[totalUsuarios-1] = null;
+                totalUsuarios--;
+                System.out.println("Usuario removido!\n");
+                return;
+            }
+        }
+        System.out.println("Usuario nao encontrado!\n");
     }
 }
