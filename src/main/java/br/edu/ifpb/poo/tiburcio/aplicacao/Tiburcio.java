@@ -25,13 +25,13 @@ public class Tiburcio {
     private static Scanner scanner = new Scanner(System.in);
     
     public static void main(String[] args) {
-        System.out.println("\n=== SISTEMA TIBURCIO - BIBLIOTECA ===\n");
+        System.out.println("\n==== TIBURCIO ====\n");
         
         Menu principal = new Menu();
         principal.setOpcoes(new String[]{
             "1. Gerenciar Itens",
-            "2. Gerenciar Usuarios",
-            "3. Emprestimo/Devolucao",
+            "2. Gerenciar Usuários",
+            "3. Emprestimo/Devolução",
             "4. Consultas",
             "5. Sair"
         });
@@ -44,7 +44,7 @@ public class Tiburcio {
             else if (opcao == 3) menuOperacoes();
             else if (opcao == 4) menuConsultas();
             else if (opcao == 5) System.out.println("\nSistema encerrado!\n");
-            else System.out.println("Opcao invalida!");
+            else System.out.println("Opção invalida!");
         } while (opcao != 5);
         
         scanner.close();
@@ -106,7 +106,7 @@ public class Tiburcio {
     
     private static void cadastrarLivro() {
         if (totalItens >= MAX_ITENS) { System.out.println("Acervo cheio!"); return; }
-        System.out.println("\n--- CADASTRO LIVRO ---");
+        System.out.println("\n-- CADASTRO LIVRO --");
         System.out.print("ISBN: "); String isbn = scanner.nextLine();
         System.out.print("Titulo: "); String titulo = scanner.nextLine();
         System.out.print("Autor(es): "); String autores = scanner.nextLine();
@@ -123,7 +123,7 @@ public class Tiburcio {
     
     private static void cadastrarRevista() {
         if (totalItens >= MAX_ITENS) { System.out.println("Acervo cheio!"); return; }
-        System.out.println("\n--- CADASTRO REVISTA ---");
+        System.out.println("\n-- CADASTRO REVISTA --");
         System.out.print("ISSN: "); String issn = scanner.nextLine();
         System.out.print("Titulo: "); String titulo = scanner.nextLine();
         System.out.print("Volume: "); int volume = lerInteiro();
@@ -136,7 +136,7 @@ public class Tiburcio {
     }
     
     private static void listarItens() {
-        System.out.println("\n--- ACERVO ---");
+        System.out.println("\n-- ACERVO --");
         if (totalItens == 0) { System.out.println("Nenhum item cadastrado.\n"); return; }
         for (int i = 0; i < totalItens; i++) {
             System.out.println(itens[i].toString() + "\n");
@@ -201,4 +201,90 @@ public class Tiburcio {
         }
         System.out.println("Usuario nao encontrado!\n");
     }
+
+    // OPERAÇÕES 
+    
+    private static Usuario buscarUsuario(String id) {
+        for (int i = 0; i < totalUsuarios; i++) 
+            if (usuarios[i].getId().equals(id)) return usuarios[i];
+        return null;
+    }
+    
+    private static Item buscarItem(String id) {
+        for (int i = 0; i < totalItens; i++) 
+            if (itens[i].getId().equals(id)) return itens[i];
+        return null;
+    }
+    
+    private static int contarEmprestimosAtivos(String idUsuario) {
+        int count = 0;
+        for (int i = 0; i < totalEmprestimos; i++) {
+            if (emprestimos[i].getUsuario().getId().equals(idUsuario) && 
+                emprestimos[i].getStatus().equals(Emprestimo.STATUS_ATIVO)) count++;
+        }
+        return count;
+    }
+    
+    private static boolean temAtraso(String idUsuario) {
+        for (int i = 0; i < totalEmprestimos; i++) {
+            if (emprestimos[i].getUsuario().getId().equals(idUsuario) && 
+                emprestimos[i].isEmAtraso() && 
+                emprestimos[i].getStatus().equals(Emprestimo.STATUS_ATIVO)) return true;
+        }
+        return false;
+    }
+    
+    private static void realizarEmprestimo() {
+        System.out.println("\n-- EMPRÉSTIMO --");
+        System.out.print("ID Usuario: "); String idU = scanner.nextLine();
+        System.out.print("ID Item: "); String idI = scanner.nextLine();
+        
+        Usuario u = buscarUsuario(idU);
+        if (u == null) { System.out.println("Usuário não encontrado!\n"); return; }
+        
+        Item item = buscarItem(idI);
+        if (item == null) { System.out.println("Item não encontrado!\n"); return; }
+        
+        if (!u.isAtivo()) { System.out.println("Usuário inativo!\n"); return; }
+        if (u.getMultaPendente() > 0) { System.out.println("Usuário com multa pendente!\n"); return; }
+        if (temAtraso(idU)) { System.out.println("Usuário com empréstimo em atraso!\n"); return; }
+        
+        int ativos = contarEmprestimosAtivos(idU);
+        if (ativos >= u.getLimiteEmprestimos()) { System.out.println("Limite de empréstimos atingido!\n"); return; }
+        
+        if (!item.isDisponivel()) { System.out.println("Item indisponível!\n"); return; }
+        
+        int prazo = u.getPrazoPadrao();
+        if ((u.getTipo().equals(Usuario.TIPO_PROFESSOR) || u.getTipo().equals(Usuario.TIPO_POS_GRADUACAO)) 
+            && item.getTipoItem().equals("Revista")) prazo = 7;
+        
+        emprestimos[totalEmprestimos++] = new Emprestimo(u, item, LocalDate.now(), prazo);
+        item.setStatus(Item.STATUS_EMPRESTADO);
+        
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        System.out.println("Empréstimo realizado! Devolução prevista: " + LocalDate.now().plusDays(prazo).format(fmt) + "\n");
+    }
+    
+    private static void registrarDevolucao() {
+        System.out.println("\n-- DEVOLUÇÃO --");
+        System.out.print("ID Emprestimo: ");
+        String id = scanner.nextLine();
+        
+        Emprestimo emp = null;
+        for (int i = 0; i < totalEmprestimos; i++) {
+            if (emprestimos[i].getId().equals(id)) { emp = emprestimos[i]; break; }
+        }
+        
+        if (emp == null) { System.out.println("Emprestimo nao encontrado!\n"); return; }
+        if (!emp.getStatus().equals(Emprestimo.STATUS_ATIVO)) { System.out.println("Emprestimo ja finalizado!\n"); return; }
+        
+        double multa = emp.registrarDevolucao(LocalDate.now());
+        if (multa > 0) {
+            emp.getUsuario().adicionarMulta(multa);
+            System.out.printf("Devolucao com multa de R$ %.2f\n\n", multa);
+        } else {
+            System.out.println("Devolucao realizada sem multa!\n");
+        }
+    }
+
 }
