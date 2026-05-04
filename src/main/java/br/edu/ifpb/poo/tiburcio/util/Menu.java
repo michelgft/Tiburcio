@@ -25,7 +25,7 @@ public class Menu {
                     System.out.print("Opção inválida! Digite novamente: ");
                 }
             } catch (NumberFormatException e) {
-                System.out.print("Digite um numero: ");
+                System.out.print("Digite um número: ");
             }
         }
     }
