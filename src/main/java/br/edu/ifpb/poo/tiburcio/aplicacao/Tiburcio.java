@@ -287,4 +287,58 @@ public class Tiburcio {
         }
     }
 
+  //Consultas do emprestimo
+    
+    private static void listarEmprestimosAbertos() {
+        System.out.println("\n--- EMPRESTIMOS EM ABERTO ---");
+        int count = 0;
+        for (int i = 0; i < totalEmprestimos; i++) {
+            if (emprestimos[i].getStatus().equals(Emprestimo.STATUS_ATIVO)) {
+                System.out.println(emprestimos[i].toString() + "\n");
+                count++;
+            }
+        }
+        if (count == 0) System.out.println("Nenhum emprestimo em aberto.\n");
+    }
+    
+    private static void listarEmprestimosAtraso() {
+        System.out.println("\n--- EMPRESTIMOS EM ATRASO ---");
+        int count = 0;
+        for (int i = 0; i < totalEmprestimos; i++) {
+            if (emprestimos[i].isEmAtraso() && emprestimos[i].getStatus().equals(Emprestimo.STATUS_ATIVO)) {
+                System.out.println(emprestimos[i].toString() + "\n");
+                count++;
+            }
+        }
+        if (count == 0) System.out.println("Nenhum emprestimo em atraso.\n");
+    }
+    
+    private static void historicoUsuario() {
+        System.out.print("\nID do usuario: ");
+        String id = scanner.nextLine();
+        System.out.println("\n--- HISTORICO ---");
+        int count = 0;
+        for (int i = 0; i < totalEmprestimos; i++) {
+            if (emprestimos[i].getUsuario().getId().equals(id)) {
+                System.out.println(emprestimos[i].toString() + "\n");
+                count++;
+            }
+        }
+        if (count == 0) System.out.println("Nenhum emprestimo encontrado.\n");
+    }
+    
+    private static void listarTodosEmprestimos() {
+        System.out.println("\n--- TODOS EMPRESTIMOS ---");
+        if (totalEmprestimos == 0) { System.out.println("Nenhum emprestimo registrado.\n"); return; }
+        for (int i = 0; i < totalEmprestimos; i++) {
+            System.out.println(emprestimos[i].toString() + "\n");
+        }
+    }
+    
+    private static int lerInteiro() {
+        while (true) {
+            try { return Integer.parseInt(scanner.nextLine()); }
+            catch (NumberFormatException e) { System.out.print("Digite um numero: "); }
+        }
+    }
 }
