@@ -12,14 +12,14 @@ public abstract class Item {
     public static final String STATUS_RESERVADO = "RESERVADO";
     public static final String STATUS_MANUTENCAO = "EM_MANUTENCAO";
     
-    // Atributos - Lombok gera getters
+    // Atributos -Lombok que gera getters
     private final String id = UUID.randomUUID().toString().substring(0, 8);
     private String titulo;
     private String editora;
     private int anoPublicacao;
     private String status = STATUS_DISPONIVEL;
     
-    // Construtor manual porque precisa inicializar atributos específicos
+    // Construtor -manual
     public Item(String titulo, String editora, int anoPublicacao) {
         this.titulo = titulo;
         this.editora = editora;

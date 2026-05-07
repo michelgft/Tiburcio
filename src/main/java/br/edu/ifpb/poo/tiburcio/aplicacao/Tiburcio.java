@@ -25,7 +25,7 @@ public class Tiburcio {
     private static Scanner scanner = new Scanner(System.in);
     
     public static void main(String[] args) {
-        System.out.println("\n==== TIBURCIO ====\n");
+        System.out.println("\n==== TIBURCIO - BIBLIOTECA ====\n");
         
         Menu principal = new Menu();
         principal.setOpcoes(new String[]{
