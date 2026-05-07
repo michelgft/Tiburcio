@@ -158,7 +158,7 @@ public class Tiburcio {
         System.out.println("Item nao encontrado!\n");
     }
 
-  //Usuarios
+  //Usuarios// feita por Julio
     
     private static void cadastrarUsuario() {
         if (totalUsuarios >= MAX_USUARIOS) { System.out.println("Limite de usuarios atingido!"); return; }
@@ -287,7 +287,7 @@ public class Tiburcio {
         }
     }
 
-  //Consultas do emprestimo
+  //Consultas do emprestimo// Feita por Julio
     
     private static void listarEmprestimosAbertos() {
         System.out.println("\n--- EMPRESTIMOS EM ABERTO ---");
