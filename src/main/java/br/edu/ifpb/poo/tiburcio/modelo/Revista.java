@@ -10,13 +10,16 @@ import lombok.ToString;
 public class Revista extends Item {
     
     private String issn;
+    private Editora editora;
     private int volume;
     private int numero;
     private String dataPublicacao;
     
-    public Revista(String issn, String titulo, int volume, int numero, String editora, String dataPublicacao) {
-        super(titulo, editora, 0);
+    public Revista(String issn, String titulo, String autor, Editora editora,
+                   int volume, int numero, String dataPublicacao) {
+        super(titulo, autor, 0);
         this.issn = issn;
+        this.editora = editora;
         this.volume = volume;
         this.numero = numero;
         this.dataPublicacao = dataPublicacao;
@@ -30,5 +33,20 @@ public class Revista extends Item {
     @Override
     public String getTipoItem() {
         return "Revista";
+    }
+    
+    @Override
+    public boolean podeSerEmprestado() {
+        return true;
+    }
+    
+    @Override
+    public String toString() {
+        return super.toString() + 
+               " | ISSN: " + issn + 
+               " | Editora: " + (editora != null ? editora.getNome() : "N/A") +
+               " | Volume: " + volume + 
+               " | Numero: " + numero + 
+               " | Data: " + dataPublicacao;
     }
 }
