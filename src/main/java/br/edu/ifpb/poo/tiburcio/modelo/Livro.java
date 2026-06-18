@@ -7,24 +7,20 @@ import lombok.ToString;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class Livro extends Item {
+public abstract class Livro extends Item {
     
-    private String isbn;
-    private String autores;
-    private int edicao;
-    private String genero;
-    private int numPaginas;
-    private String sinopse;
+    protected String isbn;
+    protected Editora editora;
+    protected int edicao;
+    protected String genero;
     
-    public Livro(String isbn, String titulo, String autores, String editora,
-                 int anoPublicacao, int edicao, String genero, int numPaginas, String sinopse) {
-        super(titulo, editora, anoPublicacao);
+    public Livro(String isbn, String titulo, String autor, Editora editora,
+                 int anoPublicacao, int edicao, String genero) {
+        super(titulo, autor, anoPublicacao);
         this.isbn = isbn;
-        this.autores = autores;
+        this.editora = editora;
         this.edicao = edicao;
         this.genero = genero;
-        this.numPaginas = numPaginas;
-        this.sinopse = sinopse;
     }
     
     @Override
@@ -35,5 +31,19 @@ public class Livro extends Item {
     @Override
     public String getTipoItem() {
         return "Livro";
+    }
+    
+    @Override
+    public boolean podeSerEmprestado() {
+        return true;
+    }
+    
+    @Override
+    public String toString() {
+        return super.toString() + 
+               " | ISBN: " + isbn + 
+               " | Editora: " + (editora != null ? editora.getNome() : "N/A") +
+               " | Edicao: " + edicao +
+               " | Genero: " + genero;
     }
 }
