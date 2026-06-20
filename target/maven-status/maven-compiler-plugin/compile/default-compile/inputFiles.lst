@@ -1,11 +1,16 @@
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/aplicacao/Tiburcio.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/app/TiburcioApp.java
+/workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/controlador/EditoraController.java
+/workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/controlador/ItemController.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/controlador/TiburcioController.java
+/workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/modelo/AudioLivro.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/modelo/CD.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/modelo/Editora.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/modelo/Emprestimo.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/modelo/Item.java
+/workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/modelo/JogoTabuleiro.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/modelo/Livro.java
+/workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/modelo/LivroFisico.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/modelo/Revista.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/modelo/Usuario.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/modelo/Venda.java
