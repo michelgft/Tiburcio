@@ -16,13 +16,16 @@
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/modelo/Usuario.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/modelo/Venda.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/persistencia/EditoraRepositorio.java
+/workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/persistencia/EmprestimoRepositorio.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/persistencia/ItemRepositorio.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/persistencia/JogoRepositorio.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/persistencia/Repositorio.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/persistencia/UsuarioRepositorio.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/persistencia/VendaRepositorio.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/ui/Console.java
+/workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/ui/Cores.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/ui/EditoraUI.java
+/workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/ui/EmprestimoUI.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/ui/ItemUI.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/ui/Menu.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/ui/TiburcioUI.java
