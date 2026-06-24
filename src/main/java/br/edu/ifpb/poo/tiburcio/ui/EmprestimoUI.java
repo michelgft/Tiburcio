@@ -99,4 +99,5 @@ public class EmprestimoUI {
     public void exibirMensagemSucesso(String mensagem) {
         console.println(Cores.VERDE, mensagem);
     }
+    
 }

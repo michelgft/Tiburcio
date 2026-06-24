@@ -49,4 +49,22 @@ public class EditoraUI {
     public void exibirEditoraNaoEncontrada() {
         console.println(Cores.VERMELHO, "Editora não encontrada! Cadastre primeiro.");
     }
+    
+    // ========== MÉTODOS ADICIONADOS PARA O CONTROLLER ==========
+    
+    public int lerOpcao() {
+        return console.nextInt();
+    }
+    
+    public void limparTela() {
+        console.clrscr();
+    }
+    
+    public void exibirMensagemSucesso(String mensagem) {
+        console.println(Cores.VERDE, mensagem);
+    }
+    
+    public void exibirMensagemErro(String mensagem) {
+        console.println(Cores.VERMELHO, mensagem);
+    }
 }

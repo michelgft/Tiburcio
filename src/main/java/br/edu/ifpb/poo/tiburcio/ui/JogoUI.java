@@ -73,4 +73,19 @@ public class JogoUI {
     public void exibirVendaRealizada(double valor) {
         console.printf(Cores.VERDE, "Venda realizada! Valor: R$ %.2f\n\n", valor);
     }
+    public int lerOpcao() {
+        return console.nextInt();
+    }
+
+    public void limparTela() {
+        console.clrscr();
+    }
+
+    public void exibirMensagemSucesso(String mensagem) {
+        console.println(Cores.VERDE, mensagem);
+    }
+
+    public void exibirMensagemErro(String mensagem) {
+        console.println(Cores.VERMELHO, mensagem);
+    }    
 }

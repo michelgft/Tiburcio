@@ -32,8 +32,6 @@ public class ItemUI {
         String titulo = console.nextLine();
         console.print("Autor: ");
         String autor = console.nextLine();
-        console.print("Editora: ");
-        String nomeEditora = console.nextLine();
         console.print("Ano: ");
         int ano = console.nextInt();
         console.print("Edição: ");
@@ -56,8 +54,6 @@ public class ItemUI {
         String titulo = console.nextLine();
         console.print("Autor: ");
         String autor = console.nextLine();
-        console.print("Editora: ");
-        String nomeEditora = console.nextLine();
         console.print("Ano: ");
         int ano = console.nextInt();
         console.print("Edição: ");
@@ -80,8 +76,6 @@ public class ItemUI {
         String titulo = console.nextLine();
         console.print("Artista: ");
         String artista = console.nextLine();
-        console.print("Editora: ");
-        String nomeEditora = console.nextLine();
         console.print("Ano: ");
         int ano = console.nextInt();
         console.print("Número de Faixas: ");
@@ -98,8 +92,6 @@ public class ItemUI {
         String titulo = console.nextLine();
         console.print("Autor: ");
         String autor = console.nextLine();
-        console.print("Editora: ");
-        String nomeEditora = console.nextLine();
         console.print("Volume: ");
         int volume = console.nextInt();
         console.print("Número: ");
@@ -137,5 +129,25 @@ public class ItemUI {
     
     public void exibirItemRemovido() {
         console.println(Cores.VERDE, "Item removido com sucesso!");
+    }
+    
+    public int lerOpcao() {
+        return console.nextInt();
+    }
+
+    public void limparTela() {
+        console.clrscr();
+    }
+
+    public void exibirMensagemSucesso(String mensagem) {
+        console.println(Cores.VERDE, mensagem);
+    }
+
+    public void exibirMensagemErro(String mensagem) {
+        console.println(Cores.VERMELHO, mensagem);
+    }
+    
+    public void exibirEditoraNaoEncontrada() {
+        console.println(Cores.VERMELHO, "Editora não encontrada! Cadastre primeiro.");
     }
 }

@@ -1,40 +1,40 @@
 package br.edu.ifpb.poo.tiburcio.persistencia;
 
-import br.edu.ifpb.poo.tiburcio.modelo.JogoTabuleiro;
+import br.edu.ifpb.poo.tiburcio.modelo.Usuario;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class JogoRepositorio implements Repositorio<JogoTabuleiro> {
+public class UsuarioRepositorio implements Repositorio<Usuario> {
     
-    private Map<String, JogoTabuleiro> banco = new HashMap<>();
+    private Map<String, Usuario> banco = new HashMap<>();
     
     @Override
-    public boolean salvar(JogoTabuleiro jogo) {
-        if (banco.containsKey(jogo.getId())) {
+    public boolean salvar(Usuario usuario) {
+        if (banco.containsKey(usuario.getId())) {
             return false;
         }
-        banco.put(jogo.getId(), jogo);
+        banco.put(usuario.getId(), usuario);
         return true;
     }
     
     @Override
-    public JogoTabuleiro buscar(String id) {
+    public Usuario buscar(String id) {
         return banco.get(id);
     }
     
     @Override
-    public List<JogoTabuleiro> buscarTodos() {
+    public List<Usuario> buscarTodos() {
         return new ArrayList<>(banco.values());
     }
     
     @Override
-    public boolean atualizar(JogoTabuleiro jogo) {
-        if (!banco.containsKey(jogo.getId())) {
+    public boolean atualizar(Usuario usuario) {
+        if (!banco.containsKey(usuario.getId())) {
             return false;
         }
-        banco.put(jogo.getId(), jogo);
+        banco.put(usuario.getId(), usuario);
         return true;
     }
     

@@ -1,8 +1,11 @@
-/workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/aplicacao/Tiburcio.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/app/TiburcioApp.java
+/workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/controlador/ConsultaController.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/controlador/EditoraController.java
+/workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/controlador/EmprestimoController.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/controlador/ItemController.java
+/workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/controlador/JogoController.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/controlador/TiburcioController.java
+/workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/controlador/UsuarioController.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/controlador/VendaController.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/modelo/AudioLivro.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/modelo/CD.java
@@ -27,6 +30,7 @@
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/ui/EditoraUI.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/ui/EmprestimoUI.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/ui/ItemUI.java
+/workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/ui/JogoUI.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/ui/Menu.java
 /workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/ui/TiburcioUI.java
-/workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/util/Menu.java
+/workspaces/Tiburcio/src/main/java/br/edu/ifpb/poo/tiburcio/ui/UsuarioUI.java
