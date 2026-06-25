@@ -99,5 +99,30 @@ public class EmprestimoUI {
     public void exibirMensagemSucesso(String mensagem) {
         console.println(Cores.VERDE, mensagem);
     }
-    
+    public int lerOpcao() {
+        return console.nextInt();
+    }
+
+    public void limparTela() {
+        console.clrscr();
+    }
+    public String lerIdUsuario() {
+        console.print("ID do usuario: ");
+        return console.nextLine();
+    }
+    public String lerIdItem() {
+        console.print("ID do item: ");
+        return console.nextLine();
+    }
+    public String lerIdJogo() {
+        console.print("ID do jogo: ");
+        return console.nextLine();
+    }
+    public String lerNomeComprador() {
+        console.print("Nome do comprador: ");
+        return console.nextLine();
+    }
+    public void exibirVendaRealizada(double preco) {
+        console.printf(Cores.VERDE, "Venda realizada! Valor: R$ %.2f\n\n", preco);
+    }
 }

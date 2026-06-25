@@ -54,7 +54,7 @@ public class EmprestimoController {
         
         Item item = itemController.buscarPorId(idI);
         JogoTabuleiro jogo = null;
-        Object itemObj = null;
+        Item itemObj = null;
         
         if (item != null) {
             if (!item.podeSerEmprestado()) {
